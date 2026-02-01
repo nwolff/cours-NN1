@@ -6,15 +6,16 @@ from keras import layers, losses, models, optimizers
 from make_fashion_dataset import load
 
 images, labels = load()
+# normalize values between 0 and 1
 images = images / 255
 IMAGE_SIZE = 28
 
-#         Digit dataset
-# Train + val   60'000
-# Train         58'000
-# Validate       2'000
-# Test          10'000
+# Fashion dataset has 70'000 images
+# 0 -> 58'000 Train
+# 58'000 -> 60'000 Validate
+# 60'000 -> 70'000 Test
 
+# For images we unroll the pixel grid
 x_train = images[:-12_000, :]
 y_train = labels[:-12_000]
 x_val = images[-12_000:-10_000, :]

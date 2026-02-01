@@ -5,15 +5,16 @@ from keras import datasets, layers, losses, models, optimizers
 
 (x_train, y_train), (x_test, y_test) = datasets.mnist.load_data()
 
-# Unroll the pixel grids and normalize values between 0 and 1
 IMAGE_SIZE = 28
+# Normalize values between 0 and 1
 x_train = x_train / 255
 x_test = x_test / 255
 
-x_val = x_train[-2000:, :]
-y_val = y_train[-2000:]
+# For images we unroll the pixel grid
 x_train = x_train[:2000, :]
 y_train = y_train[:2000]
+x_val = x_train[-2000:, :]
+y_val = y_train[-2000:]
 
 
 def build_model(hp):

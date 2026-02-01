@@ -8,6 +8,8 @@ from make_zero_one_dataset import keep_zeros_and_ones, load
 images, labels = keep_zeros_and_ones(load())
 images = images / 255
 IMAGE_SIZE = 28
+
+
 #  Finding the ratios for the ZeroOne dataset, based on what we did for
 #  the full dataset:
 #

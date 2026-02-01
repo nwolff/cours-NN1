@@ -40,7 +40,7 @@
 		"@tensorflow/tfjs": "^4.20.0",
 		"daisyui": "^4.12.0",
 		"plotly.js-dist": "^2.32.0",
-		"svelte-range-slider-pips": "^2.3.1",
+		"svelte-range-slider-pips": "^3.0.0",
 		"svelte-vega": "^2.2.1",
 		"tslog": "^4.9.3"
 	}

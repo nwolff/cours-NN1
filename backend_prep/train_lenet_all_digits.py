@@ -64,4 +64,4 @@ scores = model.evaluate(x_test, y_test, verbose=0)
 print("Loss: %.2f%%" % (scores[0] * 100))
 print("Accuracy: %.2f%%" % (scores[1] * 100))
 
-model.save("build/le_net.keras")
+model.save("build/le_net_all_digits.keras")
