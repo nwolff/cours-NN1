@@ -21,6 +21,8 @@
 	$: classes = $networkStore?.shape.classes;
 	$: weights = $networkStore?.tfModel.weights;
 
+	$: canLearn = typeof image !== 'undefined'; // canLearn updates only when image changes
+
 	let drawbox: DrawBox;
 	let prediction: number[] | undefined;
 	let activations: number[][] | undefined;
@@ -88,6 +90,7 @@
 	const ACTIVATIONS_FOR_DIGIT = [ZERO_ACTIVATIONS, ONE_ACTIVATIONS];
 
 	async function learn(digit: number) {
+		canLearn = false;
 		if (!image) {
 			logger.info('Cannot learn without image');
 			return;
@@ -206,12 +209,12 @@
 
 			<ul class="menu py-4">
 				<li class="mt-1">
-					<button class="btn btn-outline btn-primary" disabled={!image} on:click={itsAZero}>
+					<button class="btn btn-outline btn-primary" disabled={!canLearn} on:click={itsAZero}>
 						C'est un 0
 					</button>
 				</li>
 				<li class="mt-1">
-					<button class="btn btn-outline btn-primary" disabled={!image} on:click={itsAOne}>
+					<button class="btn btn-outline btn-primary" disabled={!canLearn} on:click={itsAOne}>
 						C'est un 1
 					</button>
 				</li>
