@@ -198,7 +198,9 @@
 		<div class="col-span-2">
 			<h4 class="text-xl mb-2">Dessiner un chiffre</h4>
 			<DrawBox bind:this={drawbox} on:imageData={handleDrawnImage} />
-			<button class="btn btn-outline btn-primary mt-4" on:click={clear}>Effacer</button>
+			<button class="btn btn-outline btn-primary mt-4" disabled={!image} on:click={clear}
+				>Effacer</button
+			>
 
 			<div class="divider"></div>
 
