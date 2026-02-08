@@ -232,12 +232,6 @@
 				all="label"
 				springValues={{ stiffness: 0.2, damping: 0.7 }}
 			/>
-
-			<!--
-			<div class="divider"></div>
-
-			<NetworkTrainingStats stats={$networkStore.stats} />
-			-->
 		</div>
 
 		<div class="col-span-5">
@@ -251,13 +245,14 @@
 		</div>
 		<div class="col-span-2">
 			<NetworkStats stats={$networkStore.stats} />
-			<ul class="menu py-10 mx-5">
-				<li>
-					<button class="btn btn-outline btn-error" on:click={resetModel}>
-						Réinitialiser le réseau
-					</button>
-				</li>
-			</ul>
+			<div class="m-6" />
+			<button
+				class="btn btn-outline btn-error"
+				disabled={$networkStore.stats.samplesSeen == 0}
+				on:click={resetModel}
+			>
+				Réinitialiser le réseau
+			</button>
 		</div>
 	</div>
 {/if}
